@@ -1,0 +1,302 @@
+/* 기본 리셋 및 공통 스타일 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #333;
+  background-color: #f2f2f2;
+  line-height: 1.6;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+
+/* 헤더, 네비게이션 */
+header {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-menu li a {
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.nav-menu li a:hover {
+  color: #e91e63; /* 강조 색상 */
+}
+
+/* Hero 섹션 */
+.hero-section {
+  display: flex;
+  flex-wrap: wrap; /* 화면이 좁을 때 줄바꿈 */
+  min-height: 400px;
+}
+.hero-left {
+  flex: 1 1 60%;
+  background: #ff66cc; /* 핑크색 */
+  color: #fff;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero-left h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.hero-left p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.hero-right {
+  flex: 1 1 40%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.image-collage {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.image-collage img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* 검정색 바 영역 */
+.banner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  padding: 1rem 0;
+}
+.banner-item {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* 포트폴리오 타이틀 섹션 */
+.portfolio-title {
+  text-align: center;
+  margin: 2rem auto 1rem auto;
+}
+.portfolio-title h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  display: inline-block;
+  border-bottom: 3px solid #e91e63;
+  padding-bottom: 0.5rem;
+}
+
+/* 초기 상태: 숨김 */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* JS로 visible 클래스가 추가되면 보이도록 */
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 포트폴리오 섹션 공통 */
+.portfolio-items {
+  max-width: 1200px;
+  margin: 2rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.item {
+  background-color: #fff;
+  width: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  /* 필요에 따라 box-shadow 추가 가능 */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* 이미지를 감싸는 컨테이너 */
+.image-container {
+  position: relative;   /* 오버레이 위치를 위해 상대 위치 */
+  overflow: hidden;     /* 슬라이드/블라인드 효과를 위해 */
+}
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 오버레이 기본 스타일 (이미지 위에 덮여서 나타나는 블라인드 효과) */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);  /* 반투명 검정 배경 */
+  color: #fff;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* 마우스 오버 시 오버레이가 슬라이드하여 나타남 */
+.image-container:hover .overlay {
+  transform: translateY(0);
+}
+
+/* 오버레이 내부 텍스트 초기 상태: 약간 아래 위치하고 투명하게 */
+.overlay h1,
+.overlay h3,
+.overlay p {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* 오버레이가 보일 때, 텍스트 애니메이션 (fadeInUp) 적용 */
+.image-container:hover .overlay h1 {
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: 0.2s;
+}
+.image-container:hover .overlay h3 {
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: 0.4s;
+}
+.image-container:hover .overlay p {
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: 0.6s;
+}
+
+/* fadeInUp 애니메이션 keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Introduce 섹션 */
+.introduce-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.introduce-section h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e91e63;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+.introduce-section p {
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+/* Contact 섹션 */
+.contact-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.contact-section h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e91e63;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+.contact-section p {
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
+.contact-section a {
+  color: #e91e63;
+}
+
+/* 푸터 */
+footer {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  padding: 1rem 0;
+}
+footer p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* 반응형 (태블릿 이하) */
+@media (max-width: 768px) {
+  .hero-left, .hero-right {
+    flex: 1 1 100%;
+  }
+  .hero-section {
+    min-height: auto;
+  }
+  .hero-left {
+    text-align: center;
+  }
+  .hero-left h1 {
+    font-size: 1.6rem;
+  }
+  .hero-left p {
+    font-size: 1rem;
+  }
+  .banner {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .banner-item {
+    font-size: 1rem;
+  }
+}
