@@ -7,12 +7,6 @@
 
 ---
 
-## 🌐 데모 보기 | Live Demo
-
-👉 [포트폴리오 미리보기](https://spiffy-dango-2d6fa4.netlify.app/) 
-- 현재 이 위에 있는 사이트는 완성형이 아닌 기초 틀에서 조금 수정한 사이트입니다.
----
-
 ## 🧰 사용 기술 | Built With
 
 - HTML5 / CSS3 / JavaScript
