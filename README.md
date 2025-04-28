@@ -7,6 +7,12 @@
 
 ---
 
+## 😊 사이트 미리보기ㅣWeb
+
+[사이트 미리보기](http://yk070201web.kro.kr/)
+
+---
+
 ## 🧰 사용 기술 | Built With
 
 - HTML5 / CSS3 / JavaScript
