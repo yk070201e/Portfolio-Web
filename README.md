@@ -15,10 +15,19 @@
 
 ## 🧰 사용 기술 | Built With
 
-- HTML5 / CSS3 / JavaScript
+- HTML5 / CSS / JavaScript
 - (선택 사항: React / Tailwind / GSAP 등 추가)
 - 반응형 웹 (Responsive Design)
 - 기본적인 애니메이션 / 인터랙션 포함
+
+---
+
+## 📂 주요 파일 구조
+| 파일/폴더 | 설명 |
+|:---|:---|
+| `index.html` | 메인 페이지 |
+| `style.css`| `script.js` | 디자인과 레이아웃 및 동작과 기능수정
+| `img` | 이미지 파일 추가 및 파일 추가 가능 
 
 ---
 
